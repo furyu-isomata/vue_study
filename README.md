@@ -1,4 +1,4 @@
-# curation-site
+# vue.js モック
 
 ## Project setup
 ```
