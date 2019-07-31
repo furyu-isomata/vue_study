@@ -1,7 +1,7 @@
 <template>
     <meerkat>
         <figure class="sub_area js_gtm_event l-element">
-            <a :href="linkUrl">
+            <a :href="linkUrl" :target="newWindow ? '_blank':false">
                 <p>とりあえずコンポーネント表示</p>
                 <img :src="imgUrl" alt="imgAlt">
                 <h1 style="color:#fff">{{ imgAlt }}</h1>
@@ -33,6 +33,7 @@
 				linkUrl: '',
                 imgUrl: '',
                 imgAlt: '',
+                newWindow: ''
 			}
 		},
         methods: {
@@ -42,8 +43,7 @@
 				this.linkUrl = bannerArray[arrayIndex].linkUrl;
 				this.imgUrl = bannerArray[arrayIndex].imgUrl;
 				this.imgAlt = bannerArray[arrayIndex].imgAlt;
-				console.log(this.linkUrl);
-				// return bannerArray[arrayIndex];
+				this.newWindow = bannerArray[arrayIndex].newWindow;
 			}
         },
         created() {
