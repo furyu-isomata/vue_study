@@ -2,9 +2,7 @@
     <meerkat>
         <figure class="sub_area js_gtm_event l-element">
             <a :href="linkUrl" :target="newWindow ? '_blank':false">
-                <p>とりあえずコンポーネント表示</p>
-                <img :src="imgUrl" alt="imgAlt">
-                <h1 style="color:#fff">{{ imgAlt }}</h1>
+                <img :src="imgPath" alt="imgAlt">
             </a>
         </figure>
     </meerkat>
@@ -19,19 +17,19 @@
 				bannerList: [
 					{
 						"linkUrl": "https://voyager-sp-dev-test.e-jumon.com/sp/machine/aroundtwenty/1",
-						"imgUrl": "https://voyager-sp-dev-test.e-jumon.com/img/banner/banner_aroundtwenty_2.jpg",
+						"imgName": "bnr_aroud20.jpg",
 						"imgAlt": "AROUND20で撮影すると、3枚コラージュ画像全員もらえる！！",
 						"newWindow": false
 					},
 					{
 						"linkUrl": "https://app.adjust.com/pbun2kx",
-						"imgUrl": "https://s3-ap-northeast-1.amazonaws.com/pictlink-public-files-test/banner/icon/icon_present_002_1907.gif",
+						"imgName": "bnr_yasegram.jpg",
 						"imgAlt": "フリューが作った　面倒くさくない！体重管理アプリ",
 						"newWindow": true
 					}
 				],
 				linkUrl: '',
-                imgUrl: '',
+				imgPath: '',
                 imgAlt: '',
                 newWindow: ''
 			}
@@ -40,11 +38,17 @@
 			getRandomBanner() {
 				const bannerArray = Array.from(this.bannerList);
 				const arrayIndex = Math.floor(Math.random() * bannerArray.length);
+
+				const imgName = bannerArray[arrayIndex].imgName;
 				this.linkUrl = bannerArray[arrayIndex].linkUrl;
-				this.imgUrl = bannerArray[arrayIndex].imgUrl;
 				this.imgAlt = bannerArray[arrayIndex].imgAlt;
 				this.newWindow = bannerArray[arrayIndex].newWindow;
-			}
+				this.imgPath = this.bannerUrl(imgName);
+
+			},
+			bannerUrl(imgName){
+				return this.imgPath = `/img/banner/meerkat/${imgName}.jpg`;
+			},
         },
         created() {
 			this.getRandomBanner();
