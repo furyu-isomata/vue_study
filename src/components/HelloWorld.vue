@@ -1,14 +1,7 @@
 <template>
   <div class="hello">
     <div class="sample">
-      <h1>スライダーテスト</h1>
-      <!-- Slickタグで対象タグを囲む -->
-      <slick ref="slick" :options="slickOptions"><!-- refプロパティにslickを指定してオプションも設定する -->
-        <div><img src="http://placehold.jp/3d4070/ffffff/750x480.png?text=1"></div>
-        <div><img src="http://placehold.jp/3d4070/ffffff/750x480.png?text=2"></div>
-        <div><img src="http://placehold.jp/3d4070/ffffff/750x480.png?text=3"></div>
-      </slick>
-      <!-- End -->
+      <appeal></appeal>
     </div>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -41,28 +34,27 @@
 </template>
 
 <script>
-	import Slick from 'vue-slick' // Slick読み込み
-	import '../../node_modules/slick-carousel/slick/slick.css' // Slickのcss読み込み
-export default {
-  name: 'HelloWorld',
-  data () {
-      return {
-          // Slickのオプションを設定
-          slickOptions: {
-              arrows: true,
-			  autoplay: true,
-			  autoplaySpeed: 3000,
-			  dots: true,
-			  mobileFirst: true,
-			  swipeToSlide: true
-          }
-      }
-  },
-  // コンポーネンツにSlickを登録
-  components: {
-      Slick
+    import Appeal from "./Appeal"; // Slickのcss読み込み
+  export default {
+    name: 'HelloWorld',
+    data () {
+        return {
+            // Slickのオプションを設定
+            slickOptions: {
+                arrows: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                mobileFirst: true,
+                swipeToSlide: true
+            }
+        }
+    },
+    // コンポーネンツにSlickを登録
+    components: {
+        Appeal,
+    }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
