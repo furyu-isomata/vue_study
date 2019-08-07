@@ -1,6 +1,15 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <div class="sample">
+      <h1>スライダーテスト</h1>
+      <!-- Slickタグで対象タグを囲む -->
+      <slick ref="slick" :options="slickOptions"><!-- refプロパティにslickを指定してオプションも設定する -->
+        <div><img src="http://placehold.jp/3d4070/ffffff/750x480.png?text=1"></div>
+        <div><img src="http://placehold.jp/3d4070/ffffff/750x480.png?text=2"></div>
+        <div><img src="http://placehold.jp/3d4070/ffffff/750x480.png?text=3"></div>
+      </slick>
+      <!-- End -->
+    </div>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -27,14 +36,31 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+
   </div>
 </template>
 
 <script>
+	import Slick from 'vue-slick' // Slick読み込み
+	import '../../node_modules/slick-carousel/slick/slick.css' // Slickのcss読み込み
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  data () {
+      return {
+          // Slickのオプションを設定
+          slickOptions: {
+              arrows: true,
+			  autoplay: true,
+			  autoplaySpeed: 3000,
+			  dots: true,
+			  mobileFirst: true,
+			  swipeToSlide: true
+          }
+      }
+  },
+  // コンポーネンツにSlickを登録
+  components: {
+      Slick
   }
 }
 </script>
@@ -55,4 +81,7 @@ li {
 a {
   color: #42b983;
 }
+  img {
+    margin: 0 auto;
+  }
 </style>
