@@ -1,9 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Top from './components/pages/Top';
-import Beauty from './components/pages/Beauty';
-import Diet from './components/pages/Diet';
-
+import ArticleList from './components/pages/ArticleList';
+import Category from './components/pages/Category';
 Vue.use(VueRouter);
 
 const routes = [
@@ -12,13 +11,14 @@ const routes = [
 		component: Top
 	},
 	{
-		path: '/beauty',
-		component:Beauty
+		path: '/articles',
+		component:ArticleList
 	},
 	{
-		path: '/diet',
-		component: Diet
+		path: '/articles/:category',
+		component:Category
 	}
+
 ];
 
 const router = new VueRouter({

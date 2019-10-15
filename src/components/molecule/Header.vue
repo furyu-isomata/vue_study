@@ -5,12 +5,10 @@
                 <router-link to="/"><img alt="Vue logo" src="../../assets/logo.png"></router-link>
             </div>
             <div class="header-menu">
-                <router-link to="/diet">diet</router-link>
-                <router-link to="/beauty">beauty</router-link>
+                <router-link to="/articles/beauty">beauty</router-link>
+                <router-link to="/articles/diet">diet</router-link>
             </div>
-
         </div>
-        <router-view></router-view>
     </div>
 
 </template>
@@ -42,6 +40,9 @@
             font-weight: bold;
             padding: 8px;
             margin-right: 8px;
+            &.router-link-exact-active {
+                color: black;
+            }
         }
       }
   }

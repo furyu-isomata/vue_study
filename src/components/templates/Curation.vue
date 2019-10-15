@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <Header msg="curation site"></Header>
+    <p>curation.vue</p>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -9,7 +11,7 @@
 export default {
   name: 'Curation',
   components: {
-	  Header
+  	Header
   }
 }
 </script>
