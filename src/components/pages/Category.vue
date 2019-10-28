@@ -1,7 +1,7 @@
 <template>
     <div class="hello">
-        <h1>{{ $route.params.category }} カテゴリ記事一覧</h1>
-        <list></list>
+        <h1>{{ $route.params.category }} 記事一覧</h1>
+        <list category="$route.params.category"></list>
     </div>
 </template>
 
@@ -12,6 +12,11 @@
 		name: 'Category',
         components: {
 			List
+        },
+        props: {
+			category: {
+				type: String
+			}
         }
 	}
 </script>

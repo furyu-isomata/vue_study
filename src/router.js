@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Top from './components/pages/Top';
-import ArticleList from './components/pages/ArticleList';
+import Article from './components/pages/Article'
 import Category from './components/pages/Category';
 Vue.use(VueRouter);
 
@@ -11,14 +11,13 @@ const routes = [
 		component: Top
 	},
 	{
-		path: '/articles',
-		component:ArticleList
-	},
-	{
 		path: '/articles/:category',
 		component:Category
+	},
+	{
+		path: '/article/:articleId',
+		component: Article,
 	}
-
 ];
 
 const router = new VueRouter({
@@ -26,4 +25,4 @@ const router = new VueRouter({
 	mode: 'history'
 });
 
-export default new VueRouter({routes});
+export default router;

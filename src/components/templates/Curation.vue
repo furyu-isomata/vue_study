@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
     <Header msg="curation site"></Header>
-    <p>curation.vue</p>
     <router-view></router-view>
   </div>
 </template>
@@ -10,9 +9,7 @@
   import Header from '../molecule/Header'
 export default {
   name: 'Curation',
-  components: {
-  	Header
-  }
+  components: { Header }
 }
 </script>
 
