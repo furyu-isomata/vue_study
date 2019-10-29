@@ -1,7 +1,8 @@
 <template>
     <div class="hello">
         <h1>top</h1>
-        <list></list>
+
+        <list :category="$route.params.category" />
     </div>
 </template>
 

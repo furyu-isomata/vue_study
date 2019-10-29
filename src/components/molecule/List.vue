@@ -1,19 +1,21 @@
 <template>
-    <ul class="list">
-        <li class="list-item" v-for="(article, key) in $store.state.ArticleList" :key="key">
-            <router-link class="list-link" :to="'article/' + article.id">
-                <img :src="article.img" alt="記事イメージ">
-                <div class="list-detail">
-                    <span class="list-category">{{ article.category }}</span>
-                    <span class="list-title">{{ article.title }}</span>
-                    <span class="list-caption">{{ article.detail }}</span>
-                    <span class="list-author">{{ article.author }}</span>
-                    <span class="list-date">{{ article.date }}</span>
-                </div>
-            </router-link>
-        </li>
-    </ul>
-
+    <div>
+        <h2>{{ this.category }}</h2>
+        <ul class="list">
+            <li class="list-item" v-for="(article, key) in this.getCategory()" :key="key">
+                <router-link class="list-link" :to="'article/' + article.id">
+                    <img :src="article.img" alt="記事イメージ">
+                    <div class="list-detail">
+                        <span class="list-category">{{ article.category }}</span>
+                        <span class="list-title">{{ article.title }}</span>
+                        <span class="list-caption">{{ article.detail }}</span>
+                        <span class="list-author">{{ article.author }}</span>
+                        <span class="list-date">{{ article.date }}</span>
+                    </div>
+                </router-link>
+            </li>
+        </ul>
+    </div>
 </template>
 
 
@@ -25,20 +27,26 @@
 				list: this.$store.state.ArticleList,
             }
         },
+        props: {
+			'category': {
+				type: String,
+                default: null
+            }
+        },
         methods: {
-            // getCategory() {
-				// const category = this.list.map((r) => {
-				// 	return r.category;
-				// });
-				// const category2 = category.filter((x, i, self) =>{
-				// 	return self.indexOf(x) === i;
-            //     });
-            //     console.log(category2);
-            //
-            // }
+            getCategory() {
+                if (this.category !== null) {
+					console.log(`カテゴリーは${this.category}`);
+					const showCategory = this.list.filter(x => x.category === this.category);
+					return showCategory;
+                } else {
+					console.log(`カテゴリーはtopかな`);
+					return this.list;
+                }
+            }
         },
         created() {
-			// this.getCategory();
+			this.getCategory();
 		},
 	}
 </script>
