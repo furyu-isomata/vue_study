@@ -1,21 +1,18 @@
 <template>
-    <div>
-        <h2>{{ this.category }}</h2>
-        <ul class="list">
-            <li class="list-item" v-for="(article, key) in this.getCategory()" :key="key">
-                <router-link class="list-link" :to="'article/' + article.id">
-                    <img :src="article.img" alt="記事イメージ">
-                    <div class="list-detail">
-                        <span class="list-category">{{ article.category }}</span>
-                        <span class="list-title">{{ article.title }}</span>
-                        <span class="list-caption">{{ article.detail }}</span>
-                        <span class="list-author">{{ article.author }}</span>
-                        <span class="list-date">{{ article.date }}</span>
-                    </div>
-                </router-link>
-            </li>
-        </ul>
-    </div>
+    <ul class="list">
+        <li class="list-item" v-for="(article, key) in this.getCategory()" :key="key">
+            <router-link class="list-link" :to="'/article/' + article.id">
+                <img :src="article.img" alt="記事イメージ">
+                <div class="list-detail">
+                    <span class="list-category">{{ article.category }}</span>
+                    <span class="list-title">{{ article.title }}</span>
+                    <span class="list-caption">{{ article.detail }}</span>
+                    <span class="list-author">{{ article.author }}</span>
+                    <span class="list-date">{{ article.date }}</span>
+                </div>
+            </router-link>
+        </li>
+    </ul>
 </template>
 
 

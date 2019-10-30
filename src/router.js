@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Top from './components/pages/Top';
-import Article from './components/pages/Article'
-import Category from './components/pages/Category';
+import Detail from './components/pages/Detail'
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -12,11 +12,13 @@ const routes = [
 	},
 	{
 		path: '/articles/:category',
-		component:Category
+		component:Top,
+		props: true
 	},
 	{
 		path: '/article/:articleId',
-		component: Article,
+		component: Detail,
+		props: true
 	}
 ];
 

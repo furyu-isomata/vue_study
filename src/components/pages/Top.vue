@@ -1,8 +1,8 @@
 <template>
     <div class="hello">
-        <h1>top</h1>
-
-        <list :category="$route.params.category" />
+        <h1 v-if="!category">全ての記事一覧</h1>
+        <h1 v-else>{{ this.category }} の記事一覧</h1>
+        <list :category="this.category" />
     </div>
 </template>
 
@@ -14,6 +14,12 @@
         components: {
 			List
         },
+		props: {
+			category: {
+				type: String,
+				default: null
+			}
+		},
         created() {
 			this.$store.commit('increment');
 
