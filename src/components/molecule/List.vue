@@ -33,11 +33,9 @@
         methods: {
             getCategory() {
                 if (this.category !== null) {
-					console.log(`カテゴリーは${this.category}`);
 					const showCategory = this.list.filter(x => x.category === this.category);
 					return showCategory;
                 } else {
-					console.log(`カテゴリーはtopかな`);
 					return this.list;
                 }
             }
@@ -59,6 +57,8 @@
             align-items: center;
             img {
                 margin-right: 8px;
+                width: 200px;
+                height: auto;
             }
             span {
                 margin-right: 8px;

@@ -21,29 +21,32 @@
 <script>
 	export default {
 		props: {
-			id: {
+			'id': {
 				type: Number,
+				default: null
             }
 		},
 		data() {
 			return {
-				list: this.$store.state.ArticleList,
-
+				list: this.$store.state.ArticleList
 			}
 		},
         methods: {
             getArticle() {
-                const articleId = this.$route.params.articleId;
-                const article = this.list.filter(x => x.id === articleId);
-				console.log(article);
-                return article;
+            	if(this.list != null) {
+					const articleId = Number(this.$route.params.articleId);
+					const article = this.list.filter((element) => {
+						return (element.id === articleId);
+					});
+					return article;
+                };
             }
         },
 		created() {
-			this.$store.commit('increment');
 			this.getArticle();
-			console.log(this.list);
-		}
+		},
+
+
 	};
 </script>
 <style scoped lang="scss">
