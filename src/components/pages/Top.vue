@@ -1,11 +1,10 @@
 <template>
-    <div class="hello">
+    <div class="wrap">
         <h1 v-if="!category">全ての記事一覧</h1>
         <h1 v-else>{{ this.category }} の記事一覧</h1>
         <list :category="this.category" />
     </div>
 </template>
-
 
 <script>
     import List from "../molecule/List"
@@ -19,14 +18,14 @@
 				type: String,
 				default: null
 			}
-		},
-        created() {
-			this.$store.commit('increment');
-
-        }
+		}
 	}
 </script>
 <style scoped lang="scss">
+    .wrap {
+        width: 750px;
+        margin: 20px auto;
+    }
     .list {
 
         list-style-type: none;
