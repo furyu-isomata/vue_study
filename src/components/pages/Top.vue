@@ -1,4 +1,5 @@
 <template>
+    <!--一覧ページ-->
     <div class="wrap">
         <h1 v-if="!category">全ての記事一覧</h1>
         <h1 v-else>{{ this.category }} の記事一覧</h1>
@@ -8,18 +9,18 @@
 
 <script>
     import List from "../molecule/List"
-	export default {
-		name: 'Top',
+    export default {
+        name: 'Top',
         components: {
-			List
+            List
         },
-		props: {
-			category: {
-				type: String,
-				default: null
-			}
-		}
-	}
+        props: {
+            category: {
+                type: String,
+                default: null
+            }
+        }
+    }
 </script>
 <style scoped lang="scss">
     .wrap {
@@ -27,7 +28,6 @@
         margin: 20px auto;
     }
     .list {
-
         list-style-type: none;
         &-item {
             margin-bottom: 8px;
@@ -50,9 +50,5 @@
             color: darkslateblue;
             font-size: 10px;
         }
-        &-date{
-
-        }
     }
-
 </style>

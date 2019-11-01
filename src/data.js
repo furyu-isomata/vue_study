@@ -5,17 +5,18 @@ Vue.use(VueFaker);
 
 const length = 50;
 const db = {
-	ArticleList: [],
+	articleList: [],
 };
 
 for (let i = 0; i < length; i += 1) {
 	let array = ['diet','beauty'];
-	db.ArticleList.push({
+	db.articleList.push({
 		id: i + 1,
 		category: array[Math.floor(Math.random() * array.length)],
 		date: Vue.faker().date.future(),
 		title: Vue.faker().name.title(),
-		detail: Vue.faker().lorem.words(),
+		caption: Vue.faker().lorem.sentence(),
+		detail: Vue.faker().lorem.paragraphs(),
 		img: Vue.faker().image.image(),
 		author: Vue.faker().name.findName(),
 

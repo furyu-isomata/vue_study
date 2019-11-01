@@ -7,7 +7,7 @@
                 </div>
                 <div class="list-detail">
                     <p class="list-title">{{ article.title }}</p>
-                    <p class="list-caption">{{ article.detail }}</p>
+                    <p class="list-caption">{{ article.caption }}</p>
                     <div class="list-data">
                         <p class="list-category">{{ article.category }}</p>
                         <p class="list-author">{{ article.author }}</p>
@@ -19,13 +19,12 @@
     </ul>
 </template>
 
-
 <script>
 	export default {
 		name: 'List',
         data() {
 			return {
-				list: this.$store.state.ArticleList,
+				list: this.$store.state.articleList,
             }
         },
         props: {
