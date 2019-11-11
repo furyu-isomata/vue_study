@@ -1,6 +1,6 @@
 <template>
     <ul class="list">
-        <li class="list-item" v-for="(article, key) in this.getCategory()" :key="key">
+        <li class="list-item" v-for="(article, key) in this.currentCategoryList" :key="key">
             <router-link class="list-link" :to="'/article/' + article.id">
                 <div class="list-img">
                     <img :src="article.img" alt="記事イメージ">
@@ -20,11 +20,12 @@
 </template>
 
 <script>
+    import { getArticleCategory } from '../../action';
 	export default {
 		name: 'List',
         data() {
 			return {
-				list: this.$store.state.articleList,
+                currentCategoryList: ""
             }
         },
         props: {
@@ -33,18 +34,13 @@
                 default: null
             }
         },
-        methods: {
-            getCategory() {
-                if (this.category !== null) {
-					const showCategory = this.list.filter(x => x.category === this.category);
-					return showCategory;
-                } else {
-					return this.list;
-                }
-            }
+        watch: {
+			'$route' (to, from) {
+				this.currentCategoryList = getArticleCategory(this.category);
+			}
         },
-        created() {
-			this.getCategory();
+		created() {
+			this.currentCategoryList = getArticleCategory(this.category);
 		},
 	}
 </script>
