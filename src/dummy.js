@@ -7,7 +7,7 @@ const db = {
 };
 
 for (let i = 0; i < length; i += 1) {
-	let array = ['1','2'];
+	let array = ['1','2', '3'];
 	db.articleList.push({
 		id: i + 1,
 		category: array[Math.floor(Math.random() * array.length)],

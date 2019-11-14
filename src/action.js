@@ -1,4 +1,4 @@
-import db from './data';
+import db from './dummy';
 
 // 全部返す
 export function getArticleList() {
