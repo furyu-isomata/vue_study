@@ -20,12 +20,12 @@
 </template>
 
 <script>
-    import { getArticleCategory } from '../../action';
+    import { getArticleCategory, getArticleList } from '../../action';
 	export default {
 		name: 'List',
         data() {
 			return {
-                currentCategoryList: ""
+                currentCategoryList: "",
             }
         },
         props: {
@@ -36,11 +36,17 @@
         },
         watch: {
 			'$route' (to, from) {
-				this.currentCategoryList = getArticleCategory(this.category);
+				if(this.$route.params.category) {
+					console.log(this.$route.params);
+					this.currentCategoryList = getArticleCategory(this.category);
+                } else {
+					this.currentCategoryList = getArticleList();
+                }
+
 			}
         },
 		created() {
-			this.currentCategoryList = getArticleCategory(this.category);
+			this.currentCategoryList =  getArticleList();
 		},
 	}
 </script>
