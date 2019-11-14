@@ -37,12 +37,10 @@
         watch: {
 			'$route' (to, from) {
 				if(this.$route.params.category) {
-					console.log(this.$route.params);
 					this.currentCategoryList = getArticleCategory(this.category);
-                } else {
-					this.currentCategoryList = getArticleList();
+				} else {
+					this.currentCategoryList =  getArticleList();
                 }
-
 			}
         },
 		created() {
