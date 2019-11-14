@@ -1,7 +1,5 @@
 import Vue from 'vue';
-import VueFaker from '../node_modules/vue-faker';
-
-Vue.use(VueFaker);
+Vue.use(require('vue-faker'), {locale: 'ja'});
 
 const length = 50;
 const db = {
@@ -9,7 +7,7 @@ const db = {
 };
 
 for (let i = 0; i < length; i += 1) {
-	let array = ['diet','beauty'];
+	let array = ['1','2'];
 	db.articleList.push({
 		id: i + 1,
 		category: array[Math.floor(Math.random() * array.length)],
